@@ -2,7 +2,7 @@
 console.log("funciona en html");
 let num1 = parseFloat(prompt("Ingresa el primer número:", "Número entero"));
 let num2 = parseFloat(prompt("Ingresa el segundo número:", "Número entero, diferente de cero"));
-let operacion = prompt("Ingresa el símbolo de la operación", "+, -, *, /");
+let operacion = prompt("Ingresa el símbolo de la operación", "+, -, *, / o all");
 //Proceso
 function sumar(a, b){
     let resultado = a + b;
@@ -38,6 +38,14 @@ function calculadora(num1, num2, operacion){
             return multiplicar(num1, num2);
         case "/":
             return dividir(num1, num2);
+        case "all":
+            return {
+                suma: sumar(num1, num2),
+                resta: restar(num1, num2),
+                multi: multiplicar(num1, num2),
+                div: dividir(num1, num2)
+            };
+
         default:
             return "Operación no válida";
     }
@@ -46,7 +54,18 @@ function calculadora(num1, num2, operacion){
 //OUTPUT
 let resultado = calculadora(num1, num2, operacion);
 
-console.log("El resultado es: " + resultado);
-alert("El resultado es: " + resultado);
+if (operacion === "all") {
+    let mensaje = 
+        "Suma: " + resultado.suma + "\n" +
+        "Resta: " + resultado.resta + "\n" +
+        "Multiplicación: " + resultado.multi + "\n" +
+        "División: " + resultado.div;
+
+    console.log(mensaje);
+    alert(mensaje);
+} else {
+    console.log("El resultado es: " + resultado);
+    alert("El resultado es: " + resultado);
+}
 
 
