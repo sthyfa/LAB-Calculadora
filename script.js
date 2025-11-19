@@ -43,10 +43,10 @@ function calculadora(num1, num2, operacion){
     }
 }
 
+//OUTPUT
 let resultado = calculadora(num1, num2, operacion);
 
 console.log("El resultado es: " + resultado);
 alert("El resultado es: " + resultado);
 
 
-//OUTPUT
