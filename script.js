@@ -1,29 +1,52 @@
 //INPUT
-
+console.log("funciona en html");
+let num1 = parseFloat(prompt("Ingresa el primer número:", "Número entero"));
+let num2 = parseFloat(prompt("Ingresa el segundo número:", "Número entero, diferente de cero"));
+let operacion = prompt("Ingresa el símbolo de la operación", "+, -, *, /");
 //Proceso
 function sumar(a, b){
-    let suma = a + b;
-    return suma;
+    let resultado = a + b;
+    return resultado;
 }
 
 function restar(a, b){
-    let resta = a - b;
-    return resta;
+    let resultado = a - b;
+    return resultado;
 }
 
 function multiplicar(a, b){
-    let multiplicacion = a * b;
-    return multiplicacion;
+    let resultado = a * b;
+    return resultado;
 }
 
 function dividir(a, b){
-    let division = a / b;
-    return division;
+  if(b == 0){
+    return "No se puede dividir entre cero";
+  }
+    let resultado = a / b;
+    return resultado;
 }
 
-function calculadora(a, b, operacion){
-    
+function calculadora(num1, num2, operacion){
+
+    switch (operacion) {
+        case "+":
+            return sumar(num1, num2);
+        case "-":
+            return restar(num1, num2);
+        case "*":
+            return multiplicar(num1, num2);
+        case "/":
+            return dividir(num1, num2);
+        default:
+            return "Operación no válida";
+    }
 }
+
+let resultado = calculadora(num1, num2, operacion);
+
+console.log("El resultado es: " + resultado);
+alert("El resultado es: " + resultado);
 
 
 //OUTPUT
